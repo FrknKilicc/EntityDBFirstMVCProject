@@ -1,0 +1,47 @@
+﻿@model EntityDBFirstMVCProject.Models.Tedarikciler
+@{
+    ViewBag.Title = "DeleteSuppliers";
+    Layout = "~/Views/Shared/AdminWithoutGraphs.cshtml";
+
+}
+
+
+<h2>Silmek İstediğinize Eminmisiniz</h2>
+@Html.HiddenFor(model => model.TedarikciID)
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.Label("Tedarikci Adı")
+        </dt>
+        <dt>
+            @Html.DisplayFor(x => x.TedarikciAdı)
+        </dt>
+        <dt>
+            @Html.Label("Tedarikçi Adresi")
+        </dt>
+        <dt>
+            @Html.DisplayFor(x => x.TedarikciAdresi)
+        </dt>
+        <dt>
+            @Html.Label("Tedarikçi Ülkesi")
+        </dt>
+        <dt>
+            @Html.DisplayFor(x => x.TedarikciÜlke)
+        </dt>
+        <dt>
+            @Html.Label("Tedarikçi Telefon")
+        </dt>
+        <dt>
+            @Html.DisplayFor(x => x.Telefon)
+        </dt>
+    </dl>
+    @using (Html.BeginForm())
+    {
+        @Html.ActionLink("Geri Dön", "Index", null, new { @class = "btn btn-success" })
+        <input type="submit" name="Deletee" value="Sil" class="btn btn-danger" />
+    }
+
+        <br />
+    </div>
+

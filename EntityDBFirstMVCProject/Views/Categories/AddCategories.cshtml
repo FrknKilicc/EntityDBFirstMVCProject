@@ -1,0 +1,32 @@
+﻿@model EntityDBFirstMVCProject.Models.Kategoriler
+
+@{
+    ViewBag.Title = "AddCategories";
+    Layout = "~/Views/Shared/AdminWithoutGraphs.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.Label("Kategori Adı")
+            <div class="row-cols-4">
+                @Html.EditorFor(model => model.KategoriAdı, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Kategori Açıklaması")
+            <div class="row-cols-4">
+                @Html.EditorFor(model => model.KategoriAciklamasi, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <div>
+
+        <input type="submit" name="Kaydet" value="Ekle" class="btn btn-success" />
+        @Html.ActionLink("Geri Dön", "List", null, new { @class = "btn btn-info" })
+    </div>
+
+
+}
+

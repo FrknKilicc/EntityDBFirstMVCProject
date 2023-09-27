@@ -1,0 +1,43 @@
+﻿@model EntityDBFirstMVCProject.Models.Urunler
+@{
+    ViewBag.Title = "DeleteProducts";
+    Layout = "~/Views/Shared/AdminWithoutGraphs.cshtml";
+}
+
+@*<td>@item.ÜrünStokKodu</td>
+    <td>@item.ÜrünAdi</td>
+    <td>@item.ÜrünMarkasi</td>
+    <td>@item.ÜrünAdedi</td>
+    <td>@item.Kategoriler.KategoriAdı</td>
+    <td>@item.Tedarikciler.TedarikciAdı</td>*@
+
+
+
+@Html.HiddenFor(Model => Model.ÜrünNo)
+<div>
+    <dl class="dl-horizontal">
+        <dt class="border-bottom">@Html.Label("Ürün Adı")</dt>
+        <dt class="border-top"> @Html.DisplayFor(x => x.ÜrünAdi)</dt>
+
+        <dt class="border-bottom">@Html.Label("Ürün Markasi")</dt>
+        <dt class="border-top">@Html.DisplayFor(x => x.ÜrünMarkasi)</dt>
+
+        <dt class="border-bottom">@Html.Label("Ürün Adedi")</dt>
+        <dt class="border-top">@Html.DisplayFor(x => x.ÜrünAdedi)</dt>
+
+        <dt class="border-bottom-bottom">@Html.Label("Kategori No")</dt>
+        <dt class="border-top">@Html.DisplayFor(x => x.KategoriID)</dt>
+
+        <dt class="border-bottom">@Html.Label("Tedarikçi No")</dt>
+        <dt class="border-top">@Html.DisplayFor(x => x.TedarikciID)</dt>
+    </dl>
+    <br />
+    <div>
+        @using (Html.BeginForm()) { 
+        <input type="submit" name="Sil" value="Sil" class="btn btn-warning" />
+        @Html.ActionLink("Geri Dön", "List", "Products", new { @class = "btn btn-info" })
+        }
+    </div>
+</div>
+
+

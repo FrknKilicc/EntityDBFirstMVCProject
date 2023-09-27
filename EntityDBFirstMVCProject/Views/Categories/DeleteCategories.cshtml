@@ -1,0 +1,27 @@
+﻿@model EntityDBFirstMVCProject.Models.Kategoriler
+@{
+    ViewBag.Title = "DeleteCategories";
+    Layout = "~/Views/Shared/AdminWithoutGraphs.cshtml";
+}
+
+<h2>Kategori Sil</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(Model => Model.KategoriID)
+
+    <table class="table table-hover">
+        <tr>
+            <th>Kategori Adı</th>
+            <th>Kategori Açıklaması</th>
+        </tr>
+        <tbody>
+            <tr>
+                <td>@Model.KategoriAdı</td>
+                <td>@Model.KategoriAciklamasi</td>
+                <td><input type="submit" name="delete" value="Sil" class="btn btn-danger"/> @Html.ActionLink("Geri Dön","List","Categories", new {@class="btn btn-info"})</td>
+
+            </tr>
+        </tbody>
+    </table>
+}

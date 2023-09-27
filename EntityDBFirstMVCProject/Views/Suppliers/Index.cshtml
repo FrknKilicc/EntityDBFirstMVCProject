@@ -1,0 +1,49 @@
+﻿@model IEnumerable<EntityDBFirstMVCProject.Models.Tedarikciler>
+
+@{
+    ViewBag.Title = "Tedarikçiler";
+    Layout = "~/Views/Shared/AdminWithoutGraphs.cshtml";
+}
+<h2>Tedarikçi Listesi</h2>
+
+
+<table class="table table-dark">
+    <tr>
+        <th>Tedarikçi Adı</th>
+        <th>Tedarikçi Adresi</th>
+        <th>Tedarikçi Ülkesi</th>
+        <th>Tedarikçi Tel</th>
+        <th>@using (Html.BeginForm("Index", "Suppliers"))
+        {
+            @Html.TextBox("x")
+            <input type="submit"  name="name" value="Arama"  class="btn btn-warning"/>
+        }
+            </th>
+      
+    </tr>
+    <tbody>
+        @foreach (var tedarikci in Model)
+        {
+            <tr>
+                <td>@tedarikci.TedarikciAdı</td>
+                <td>@tedarikci.TedarikciAdresi</td>
+                <td>@tedarikci.TedarikciÜlke</td>
+                <td>@tedarikci.Telefon</td>
+                <td>
+                    @Html.ActionLink("Detay", "Details", new { id = tedarikci.TedarikciID }, new { @class = "btn btn-info" })  @Html.ActionLink("Düzenle", "EditSuppliers", "Suppliers", new { id = tedarikci.TedarikciID }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("Sil", "DeleteSuppliers", new { id = tedarikci.TedarikciID }, new { @class = "btn btn-warning" })
+                </td>
+
+
+
+
+            </tr>
+
+        }
+
+    </tbody>
+</table>
+<br />
+@Html.ActionLink("Tedarikçi Ekle", "AddSuppliers", null, new { @class = "btn btn-success" })
+
+

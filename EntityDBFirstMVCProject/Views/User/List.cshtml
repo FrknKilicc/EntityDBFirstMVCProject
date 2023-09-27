@@ -1,0 +1,41 @@
+﻿@model IEnumerable<EntityDBFirstMVCProject.Models.Müsteriler>
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/AdminWithoutGraphs.cshtml";
+}
+
+<h2>Müşteri Listesi</h2>
+
+<table class="table table-dark table table-hover">
+    <tr>
+        <th>Müşteri Adı</th>
+        <th>Müşteri Şifre</th>
+        <th>Müşteri Tel</th>
+        <th>Müşteri Adresi</th>
+        <th>Yetki</th>
+        <th></th>
+    </tr>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MüsteriAdi</td>
+                <td>
+                    @{
+
+                        string gizliSifre = new string('*', item.MüsteriSifre.Length);
+                        @Html.Raw(gizliSifre)
+                    }
+                </td>
+                <td>@item.MüsteriTel</td>
+                <td>@item.MüsteriAdresi</td>
+                <td>@item.Role</td>
+                <td>@Html.ActionLink("Detay", "DetailCustomer", new { id = item.MüsteriID }, new { @class = "btn btn-info" })   @Html.ActionLink("Düzenle", "EditCustomer", "User", new { id = item.MüsteriID }, new { @class = "btn btn-success" })   @Html.ActionLink("Sil", "DeleteCustomer", new { id = item.MüsteriID }, new { @class = "btn btn-warning" })</td>
+             
+              
+            </tr>
+        }
+
+    </tbody>
+</table>
+

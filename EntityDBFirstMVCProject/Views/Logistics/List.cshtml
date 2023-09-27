@@ -1,0 +1,41 @@
+﻿@model IEnumerable<EntityDBFirstMVCProject.Models.Lojistik>
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/AdminWithoutGraphs.cshtml";
+}
+
+<h2>Lojistik Firma Listesi</h2>
+
+<table class="table table-dark table table-hover">
+    <tr>
+        <th>Firma Adı</th>
+        <th>Firma Telefon</th>
+        <th>
+            @using (Html.BeginForm("List", "Logistics"))
+            {
+
+                @Html.TextBox("x")
+                <input type="submit" name="Arama" value="Arama" class="btn btn-warning" />
+            }
+        </th>
+
+
+        <th></th>
+    </tr>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@item.LojistikFirmaAdi</td>
+                <td>@item.FirmaTel</td>
+
+                <td>@Html.ActionLink("Detay", "DetailLogistics", new { id = item.LojistikID }, new { @class = "btn btn-info" })   @Html.ActionLink("Düzenle", "EditLogistics", "Logistics", new { id = item.LojistikID }, new { @class = "btn btn-success" })   @Html.ActionLink("Sil", "DeleteLogistics", new { id = item.LojistikID }, new { @class = "btn btn-warning" })</td>
+
+
+            </tr>
+        }
+
+    </tbody>
+</table>
+

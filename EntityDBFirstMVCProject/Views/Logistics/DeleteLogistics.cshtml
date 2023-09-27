@@ -1,0 +1,33 @@
+﻿@model EntityDBFirstMVCProject.Models.Lojistik
+@{
+    ViewBag.Title = "Motormax";
+    Layout = "~/Views/Shared/AdminWithoutGraphs.cshtml";
+}
+
+<h2>Müşteri Sil</h2>
+@Html.HiddenFor(x => x.LojistikID)
+@using (Html.BeginForm())
+{
+
+    <table class="table table-bordered">
+        <tr>
+            <th>Firma Adı</th>
+            <th>Firma Telefon</th>
+
+        </tr>
+        <tbody>
+            <tr>
+                <td>@Html.DisplayFor(x => x.LojistikFirmaAdi)</td>
+                <td>@Html.DisplayFor(x => x.FirmaTel)</td>
+
+            </tr>
+        </tbody>
+    </table>
+    <div class="form-horizontal">
+        <br />
+        <input type="submit" name="Ekle" value="Sil" class="btn btn-danger" />
+        @Html.ActionLink("Geri Dön", "List", null, new { @class = "btn btn-info" })
+    </div>
+}
+
+

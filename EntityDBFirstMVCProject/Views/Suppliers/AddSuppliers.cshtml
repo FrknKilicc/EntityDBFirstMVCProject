@@ -1,0 +1,45 @@
+﻿@model EntityDBFirstMVCProject.Models.Tedarikciler
+
+@{
+    ViewBag.Title = "Tedarikçi Ekle";
+    Layout = "~/Views/Shared/AdminWithoutGraphs.cshtml";
+  
+}
+
+<h2>Tedarikçi ekle</h2>
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.Label("Tedarikçi Adı")
+        <br />
+        <div class="row-cols-4">
+            @Html.TextBoxFor(x => x.TedarikciAdı, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Tedarikçi Adresi")
+        <br />
+        <div class="row-cols-4">
+            @Html.TextBoxFor(x => x.TedarikciAdresi, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Tedarikçi Ülke")
+        <br />
+        <div class="row-cols-4">
+            @Html.TextBoxFor(x => x.TedarikciÜlke, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Tedarikçi Tel")
+        <br />
+        <div class="row-cols-4">
+            @Html.TextBoxFor(x => x.Telefon, new { @class = "form-control" })
+        </div>
+       <div>
+           <input class="btn btn-success" type="submit" name="AddSupp" value="Ekle" />
+       </div>
+    </div>
+
+}
+

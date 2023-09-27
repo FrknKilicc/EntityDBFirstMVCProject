@@ -1,0 +1,58 @@
+﻿@model EntityDBFirstMVCProject.Models.Urunler
+
+@{
+    ViewBag.Title = "EditProducts";
+    Layout = "~/Views/Shared/AdminWithoutGraphs.cshtml";
+}
+<h2>EditProducts</h2>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(x => x.ÜrünNo)
+    @Html.AntiForgeryToken();
+<form class="dl-horizontal">
+    <div class="form-control">
+        @Html.Label("Ürün Kodu")
+        <div class="row-cols-4">
+            @Html.EditorFor(Model => Model.ÜrünStokKodu, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+    <div class="form-control">
+        @Html.Label("Ürün Adı")
+        <div class="row-cols-4">
+            @Html.EditorFor(Model => Model.ÜrünAdi, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+    <div class="form-control">
+        @Html.Label("Ürün Markası")
+        <div class="row-cols-4">
+            @Html.EditorFor(Model => Model.ÜrünMarkasi, new
+            {
+                htmlAttributes = new { @class = "form-control" }
+})
+        </div>
+    </div>
+    <div class="form-control">
+        @Html.Label("Stok Giriniz")
+        <div class="row-cols-4">
+            @Html.EditorFor(model => Model.ÜrünAdedi, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+    <div class="form-control">
+        @Html.Label("Kategori Seçiniz")
+        <div class="row-cols-4">@Html.DropDownListFor(Model => Model.KategoriID, (List<SelectListItem>)ViewBag.kategoridata)</div>
+    </div>
+    <div class="form-control">
+        @Html.Label("Tedarikçi Seçiniz")
+        <div class="row-cols-4">
+            @Html.DropDownListFor(Model => Model.TedarikciID, (List<SelectListItem>)ViewBag.tedarikcidata))
+        </div>
+    </div>
+    <input type="submit" name="Ekle" value="Ekle" class="btn btn-success" />
+    <input type="reset" name="Temizle" value="Temizle" class="btn btn-warning" />
+    @Html.ActionLink("Geri Dön", "List", null, new { @class = "btn btn-info" })
+
+</form>
+}
+
+
+

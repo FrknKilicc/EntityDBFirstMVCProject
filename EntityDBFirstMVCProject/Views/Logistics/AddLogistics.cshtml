@@ -1,0 +1,37 @@
+﻿@model EntityDBFirstMVCProject.Models.Lojistik
+@{
+    ViewBag.Title = "AddCustomer";
+    Layout = "~/Views/Shared/AdminWithoutGraphs.cshtml";
+}
+
+<h2>Lojistik Firması Ekle</h2>
+
+
+
+
+@using (Html.BeginForm())
+{
+
+
+    <div class="form-horizontal">
+        @Html.Label("Firma Adı")
+        <div class="row-cols-4">
+        @Html.EditorFor(x => x.LojistikFirmaAdi, new { @class = "form-control" })</div>
+    </div>
+    <div class="form-horizontal">
+        @Html.Label("Firma Tel")
+        <div class="row-cols-4">
+            @Html.EditorFor(x => x.FirmaTel)
+        </div>
+    </div>
+
+
+    <div class="form-horizontal">
+        <br />
+        <input type="submit" name="Ekle" value="Kaydet" class="btn btn-success" />
+        <input type="reset" name="Temizle" value="Temizle" class="btn btn-warning" />
+        @Html.ActionLink("Geri Dön", "List", "Logistics", new { @class = "btn btn-info" })
+    </div>
+}
+
+

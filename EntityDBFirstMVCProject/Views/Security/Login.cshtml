@@ -1,0 +1,41 @@
+﻿
+@model EntityDBFirstMVCProject.Models.Admin
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Giriş Yap</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div style="margin-left: 30%; width: 800px" >
+        <div>
+            <div> @ViewBag.MessageBox</div>
+            <h2>Lütfen Giriş Yapınız !</h2>
+
+
+            @using (Html.BeginForm("Login", "Security", FormMethod.Post))
+            {
+                <div class="form-group">    
+                    @Html.Label("Kullanıcı Adı")
+                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "Kullanıcı Adı Giriniz" })
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Şifre")
+                    @Html.PasswordFor(x => x.Passwordd, new { @class = "form-control", placeholder = "Şifre Giriniz" })
+                </div>
+                <br />
+                <button type="submit" class="btn btn-primary">Giriş Yap</button>
+
+            }
+        </div>
+    </div>
+
+</body>
+</html>

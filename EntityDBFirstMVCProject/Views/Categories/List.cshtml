@@ -1,0 +1,50 @@
+﻿@model IEnumerable<EntityDBFirstMVCProject.Models.Kategoriler>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/AdminWithoutGraphs.cshtml";
+}
+
+
+<table class="table table-bordered">
+
+    <tr>
+
+        <th>Kategori Adı</th>
+        <th>Kategori Açıklaması</th>
+        <th>
+            @using (Html.BeginForm("List", "Categories"))
+            {
+               
+                @Html.TextBox("x")
+                <input type="submit" name="Arama" value="Arama"  class="btn btn-warning"/>
+            }
+        </th>
+</tr>
+
+<tbody>
+
+    @foreach (var kategori in Model)
+    {
+        <tr>
+            <td>@kategori.KategoriAdı</td>
+            <td>@kategori.KategoriAciklamasi</td>
+            <td>
+                @Html.ActionLink("Düzenle", "EditCategories", new { id = kategori.KategoriID }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Detay", "DetailsCategories", new { id = kategori.KategoriID }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Sil", "DeleteCategories", new { id = kategori.KategoriID }, new { @class = "btn btn-danger" })
+            </td>
+
+        </tr>
+    }
+
+</tbody>
+</table>
+@Html.ActionLink("Kategori Ekle", "AddCategories", null, new { @class = "btn btn-success" })
+@Html.ActionLink("Geri Dön", "List", "Categories", new { @class = "btn btn-info" })
+
+
+
+
+
+

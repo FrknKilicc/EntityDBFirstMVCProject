@@ -1,0 +1,47 @@
+﻿@model EntityDBFirstMVCProject.Models.Müsteriler
+@{
+    ViewBag.Title = "EditCustomer";
+    Layout = "~/Views/Shared/AdminWithoutGraphs.cshtml";
+}
+
+<h2>Müşteri Düzenle</h2>
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        @Html.Label("Müsteri Adı")
+        <div class="row-cols-4">
+            @Html.EditorFor(x => x.MüsteriAdi, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-horizontal">
+        @Html.Label("Müsteri Şifre")
+        <div class="row-cols-4">
+            @Html.EditorFor(x => x.MüsteriSifre, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-horizontal">
+        @Html.Label("Müsteri Tel")
+        <div class="row-cols-4">
+            @Html.EditorFor(x => x.MüsteriTel, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-horizontal">
+        @Html.Label("Müsteri Adres")
+        <div class="row-cols-4">
+            @Html.EditorFor(x => x.MüsteriAdresi, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-horizontal">
+        @Html.Label("Müsteri Rolü")
+        <div class="row-cols-4">
+            @Html.EditorFor(x => x.Role, new { @class = "form-control" })
+        </div>
+    </div>
+    <br />
+    <div class="form-horizontal">
+        <input type="submit" name="Düzenle" value="Kaydet" class="btn btn-success" />
+        <input type="reset" name="Temizle" value="Temizle" class="btn btn-info" />
+        @Html.ActionLink("Geri Dön", "List", "User", new { @class = "btn btn-danger" })
+    </div>
+}
+

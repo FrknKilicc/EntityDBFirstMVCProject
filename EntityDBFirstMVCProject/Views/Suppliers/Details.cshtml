@@ -1,0 +1,27 @@
+﻿@model EntityDBFirstMVCProject.Models.Tedarikciler
+
+@{
+    ViewBag.Title = "Tedarikçi Detay";
+    Layout = "~/Views/Shared/AdminWithoutGraphs.cshtml";
+}
+
+@Html.HiddenFor(Model => Model.TedarikciID)
+
+<table class="table table-dark,table table-hover ">
+    
+    <tr>
+        <th>Tedarikçi Adı</th>
+        <th>Tedarikçi Adresi</th>
+        <th>Tedarikçi Ülkesi</th>
+        <th>Tedarikçi Telefon</th>
+    </tr>
+    <tbody>
+        <tr>
+            <td>@Html.DisplayFor(Model=>Model.TedarikciAdı)</td>
+            <td>@Html.DisplayFor(Model=>Model.TedarikciAdresi )</td>
+            <td>@Html.DisplayFor(Model=>Model.TedarikciÜlke)</td>
+            <td>@Html.DisplayFor(Model=>Model.Telefon)</td>
+        </tr>
+    </tbody>
+</table>
+@Html.ActionLink("Geri Dön","Index", new {@class="btn btn-success"})

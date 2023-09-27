@@ -1,0 +1,45 @@
+﻿@model IEnumerable<EntityDBFirstMVCProject.Models.Urunler>
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/AdminWithoutGraphs.cshtml";
+}
+
+
+
+<table class="table table-hover">
+    <thead class="table table-active">
+        <tr>
+            <th class="border">Ürün Stok Kodu</th>
+            <th class="border">Ürün Adı</th>
+            <th class="border">Ürün Markası</th>
+            <th class="border">Stok Adedi</th>
+            <th class="border">Kategorisi</th>
+            <th class="border">Tedarikçi</th>
+          
+            <th>
+                @using (Html.BeginForm("list", "Products"))
+                {
+                   
+                    @Html.TextBox("searchString")
+                    <input type="submit" name="Arama" value="Arama" class="btn btn-warning" placeholder="Arama"/>
+                }
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ÜrünStokKodu</td>
+                <td>@item.ÜrünAdi</td>
+                <td>@item.ÜrünMarkasi</td>
+                <td>@item.ÜrünAdedi</td>
+                <td>@item.Kategoriler.KategoriAdı</td>
+                <td>@item.Tedarikciler.TedarikciAdı</td>
+                <td>@Html.ActionLink("Detay", "DetailProducts", new { id = item.ÜrünNo }, new { @class = "btn btn-info" }) @Html.ActionLink("Düzenle", "EditProducts", new { id = item.ÜrünNo }, new { @class = "btn btn-success" }) @Html.ActionLink("Sil", "DeleteProducts", new { id = item.ÜrünNo }, new { @class = "btn btn-warning" })</td>
+                
+            </tr>
+        }
+
+    </tbody>
+</table>

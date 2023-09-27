@@ -1,0 +1,25 @@
+﻿@model EntityDBFirstMVCProject.Models.Kategoriler
+
+@{
+    ViewBag.Title = "DetailsCategories";
+    Layout = "~/Views/Shared/AdminWithoutGraphs.cshtml";
+}
+
+<h2>Kategori Detay</h2>
+
+<table class="table table-dark">
+    @Html.HiddenFor(Model => Model.KategoriID)
+    <tr>
+        <th>Kategori Adı</th>
+        <th>Kategori Açıklaması</th>
+    </tr>
+    <tbody>
+        <tr>
+            <td>@Model.KategoriAdı</td>
+            <td>@Model.KategoriAciklamasi</td>
+            
+        </tr>
+    </tbody>
+</table>
+@Html.ActionLink("Düzenle","EditCategories",new { id = Model.KategoriID }, new {@class="btn btn-info"})
+
