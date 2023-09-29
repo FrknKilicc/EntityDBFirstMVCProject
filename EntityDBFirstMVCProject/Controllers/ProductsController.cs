@@ -13,6 +13,7 @@ namespace EntityDBFirstMVCProject.Controllers
     [AllowAnonymous]
     public class ProductsController : Controller
     {
+        
         // GET: Products
         MotorMaxEntities db = new MotorMaxEntities();
 

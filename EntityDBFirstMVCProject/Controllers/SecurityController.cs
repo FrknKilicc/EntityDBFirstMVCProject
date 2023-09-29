@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using EntityDBFirstMVCProject.Models;
 using System.Web.Security;
+using System.Web.Services.Description;
 
 namespace EntityDBFirstMVCProject.Controllers
 {
@@ -24,7 +25,9 @@ namespace EntityDBFirstMVCProject.Controllers
             if (userlogin != null)
             {
                 FormsAuthentication.SetAuthCookie(userlogin.Name, true);
+                
                 return RedirectToAction("AdminDashboard", "Admin");
+
             }
             else
             {

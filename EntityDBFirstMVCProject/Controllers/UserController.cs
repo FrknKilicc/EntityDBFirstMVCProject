@@ -8,7 +8,7 @@ using EntityDBFirstMVCProject.Models;
 
 namespace EntityDBFirstMVCProject.Controllers
 {
-    [Authorize(Roles = "A")]
+    [AllowAnonymous]
     public class UserController : Controller
     {
         // GET: User

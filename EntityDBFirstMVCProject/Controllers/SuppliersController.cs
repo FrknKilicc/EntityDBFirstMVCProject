@@ -7,7 +7,7 @@ using EntityDBFirstMVCProject.Models;
 
 namespace EntityDBFirstMVCProject.Controllers
 {
-    [Authorize(Roles = "A,B")]
+    [AllowAnonymous]
 
     public class SuppliersController : Controller
     {

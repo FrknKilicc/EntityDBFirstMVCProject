@@ -1,5 +1,4 @@
-﻿
-@model EntityDBFirstMVCProject.Models.Admin
+﻿@model EntityDBFirstMVCProject.Models.Admin
 @{
     Layout = null;
 }
@@ -11,17 +10,56 @@
     <meta name="viewport" content="width=device-width" />
     <title>Giriş Yap</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        #container {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(22,22,22,0.5);
+        }
+
+
+
+        .reveal-modal {
+            border-radius: 30px;
+            background: #dbdbdb;
+            margin: 0 auto;
+            width: 600px;
+            position: relative;
+            z-index: 41;
+            top: 25%;
+            padding: 30px;
+            -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.4);
+            -moz-box-shadow: 0 0 10px rgba(0,0,0,0.4);
+            box-shadow: 0 0 10px #198754;
+        }
+    </style>
 </head>
 <body>
-    <div style="margin-left: 30%; width: 800px" >
+    <div style="margin-left: 30%; width: 800px">
         <div>
-            <div> @ViewBag.MessageBox</div>
+            <div> </div>
             <h2>Lütfen Giriş Yapınız !</h2>
 
-
+            @if (@ViewBag.MessageBox != null)
+            {
+                <div id="container">
+                    <div id="exampleModal" class="reveal-modal">
+                        <h2>Giriş Başarısız</h2>
+                        <p>
+                            <font size="4">
+                                Kullanıcı Adı veya Şifreniz Hatalı
+                            </font>
+                        </p>
+                        <a href="@Url.Action("Login","Security",new {@class="btn btn-danger"})" class="close-reveal-modal">Kapat</a>
+                    </div>
+                </div>
+            }
             @using (Html.BeginForm("Login", "Security", FormMethod.Post))
             {
-                <div class="form-group">    
+                <div class="form-group">
                     @Html.Label("Kullanıcı Adı")
                     @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "Kullanıcı Adı Giriniz" })
                 </div>
